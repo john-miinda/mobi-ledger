@@ -3,6 +3,7 @@ package com.mobiledger.backend.controller;
 import com.mobiledger.backend.entity.User;
 import com.mobiledger.backend.exception.DuplicateEmailException;
 import com.mobiledger.backend.exception.GlobalExceptionHandler;
+import com.mobiledger.backend.security.JwtService;
 import com.mobiledger.backend.security.SecurityConfig;
 import com.mobiledger.backend.service.UserService;
 import org.junit.jupiter.api.Test;
@@ -28,6 +29,9 @@ class UserControllerTest {
 
     @MockitoBean
     private UserService userService;
+
+    @MockitoBean
+    private JwtService jwtService;
 
     @Test
     void registersAnUnauthenticatedRequestWithCreatedAndNoPasswordFields() throws Exception {
