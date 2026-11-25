@@ -103,4 +103,15 @@ public void updateDetails(
     this.currency = currency;
 }
 
+public void increaseBalance(BigDecimal amount) {
+    this.balance = this.balance.add(amount);
+}
+
+public void decreaseBalance(BigDecimal amount) {
+    if (this.balance.compareTo(amount) < 0) {
+        throw new IllegalArgumentException("Insufficient account balance");
+    }
+
+    this.balance = this.balance.subtract(amount);
+}
 }
